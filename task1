@@ -1,0 +1,41 @@
+task1
+.
+.
+.
+.
+.
+def caesar_encrypt(text, shift):
+    result=" "
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                result +=char((ord(char)-65+shift)%26+65)
+            else:
+                result +=char((ord(char)-97+shift)%26+97)
+        else:
+            result +=char
+            return result
+        
+def encrypt(text, shift):
+    return caesar_cipher(text, shift)
+
+def decrypt(text, shift):
+    return caesar_cipher(text, -shift)
+
+def main():
+    choice=input("Enter 'e' for encryption or 'd' for decryption: ").lower()
+    if choice == 'e':
+        message= input("Enter the message to encrypt: ")
+        shift=int(input("Enter the shift value: "))
+        encrypted_message=encrypt(message,shift)
+        print("Encrypted message:",encrypted_message)
+    elif choice=='d':
+        message= input("Enter the message to decrypt: ")
+        shift=int(input("Enter the shift value: "))
+        decrypted_message=decrypt(message,shift)
+        print("decrypted message:",decrypted_message)
+    else:
+        print(" Invalid choice.please enter 'e' or 'd',")
+        
+if __name__=="__main__":
+   main()
